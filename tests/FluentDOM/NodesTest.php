@@ -18,7 +18,7 @@ namespace FluentDOM {
   require_once __DIR__.'/TestCase.php';
 
   class Nodes_TestProxy extends Nodes {
-    public function matches(string $selector, \DOMNode $context = NULL): bool {
+    public function matches(string $selector, ?\DOMNode $context = NULL): bool {
       return parent::matches($selector, $context);
     }
   }
@@ -1159,7 +1159,7 @@ namespace FluentDOM {
      * @param \DOMNode|NULL $selection
      * @return Result|MockObject
      */
-    public function createLoaderResultMock(Document $document, \DOMNode $selection = NULL) {
+    public function createLoaderResultMock(Document $document, ?\DOMNode $selection = NULL) {
       $result = $this
         ->getMockBuilder(Loader\Result::class)
         ->disableOriginalConstructor()

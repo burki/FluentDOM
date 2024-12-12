@@ -77,7 +77,7 @@ namespace FluentDOM\Nodes {
      * @return array
      * @throws \LogicException
      */
-    public function getTargetNodes($selector, \DOMNode $context = NULL): array {
+    public function getTargetNodes($selector, ?\DOMNode $context = NULL): array {
       if ($nodes = $this->getNodeList($selector)) {
         return $nodes;
       }

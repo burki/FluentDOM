@@ -73,7 +73,7 @@ namespace FluentDOM\Utility {
      * @param string|NULL $fullName full name used in error message
      * @throws \UnexpectedValueException
      */
-    private function isNCName(string $name, int $offset = 0, string $fullName = NULL): void {
+    private function isNCName(string $name, int $offset = 0, ?string $fullName = NULL): void {
       $nameStartChar =
         'A-Z_a-z'.
         '\\x{C0}-\\x{D6}\\x{D8}-\\x{F6}\\x{F8}-\\x{2FF}\\x{370}-\\x{37D}'.

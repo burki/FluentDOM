@@ -31,7 +31,7 @@ namespace FluentDOM {
      *
      * @param iterable|NULL $list
      */
-    public function __construct(iterable $list = NULL) {
+    public function __construct(?iterable $list = NULL) {
       if (is_iterable($list)) {
         /** @var array|\Traversable $list */
         foreach ($list as $loader) {

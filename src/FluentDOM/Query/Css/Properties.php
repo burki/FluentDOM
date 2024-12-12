@@ -168,7 +168,7 @@ namespace FluentDOM\Query\Css {
      * @return string
      */
     public function compileValue(
-      $value, \DOMElement $node, int $index, string $currentValue = NULL
+      $value, \DOMElement $node, int $index, ?string $currentValue = NULL
     ): string {
       if (!\is_string($value) && \is_callable($value, TRUE)) {
         return (string)$value($node, $index, $currentValue);

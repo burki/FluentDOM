@@ -77,7 +77,7 @@ namespace FluentDOM\Loader {
       return NULL;
     }
 
-    private function ensureEncodingPI(string $source, string $encoding = NULL, bool $force = FALSE): string {
+    private function ensureEncodingPI(string $source, ?string $encoding = NULL, ?bool $force = FALSE): string {
       $hasXmlPi = \preg_match('(<\\?xml\\s)', $source);
       if (!$force && ($charset = $this->getCharsetFromMetaTag($source))) {
         $encoding = (string)$charset;

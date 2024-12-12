@@ -95,7 +95,7 @@ namespace FluentDOM\Loader\Text {
      * @param bool $hasHeaderLine
      * @param array|NULL $columns
      */
-    private function appendLines(\DOMNode $parent, $lines, bool $hasHeaderLine, array $columns = NULL): void {
+    private function appendLines(\DOMNode $parent, $lines, bool $hasHeaderLine, ?array $columns = NULL): void {
       try {
         $document = Implementation::getNodeDocument($parent);
         $headers = NULL;

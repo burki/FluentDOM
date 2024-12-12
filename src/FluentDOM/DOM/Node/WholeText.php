@@ -54,7 +54,7 @@ namespace FluentDOM\DOM\Node {
         }
         return TRUE;
       };
-      $replaceNode = static function(\DOMNode $node = NULL) use ($canReplaceEntity) {
+      $replaceNode = static function(?\DOMNode $node = NULL) use ($canReplaceEntity) {
         if (
           $node instanceof \DOMNode &&
           !(

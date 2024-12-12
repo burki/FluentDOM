@@ -307,7 +307,7 @@ namespace FluentDOM\DOM {
      * @return Element
      * @throws \LogicException
      */
-    public function appendElement(string $qualifiedName, $content = '', array $attributes = NULL): Element {
+    public function appendElement(string $qualifiedName, $content = '', ?array $attributes = NULL): Element {
       $this->appendChild(
         $node = $this->getDocument()->createElement($qualifiedName, $content, $attributes)
       );

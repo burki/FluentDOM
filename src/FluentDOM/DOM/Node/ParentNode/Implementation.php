@@ -30,7 +30,7 @@ namespace FluentDOM\DOM\Node\ParentNode {
      * @param \DOMNode|NULL $refChild
      * @return \DOMNode
      */
-    abstract public function insertBefore(\DOMNode $newChild, \DOMNode $refChild = NULL);
+    abstract public function insertBefore(\DOMNode $newChild, ?\DOMNode $refChild = NULL);
 
     /**
      * @param \DOMNode $newChild

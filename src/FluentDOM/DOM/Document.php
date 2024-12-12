@@ -146,7 +146,7 @@ namespace FluentDOM\DOM {
      * @return Element
      *@throws \LogicException
      */
-    public function createElement($qualifiedName, $content = NULL, array $attributes = NULL): Element {
+    public function createElement($qualifiedName, $content = NULL, ?array $attributes = NULL): Element {
       [$prefix, $localName] = QualifiedName::split($qualifiedName);
       $namespaceURI = '';
       if ($prefix !== FALSE) {
@@ -221,7 +221,7 @@ namespace FluentDOM\DOM {
      * @return Element
      * @throws \LogicException
      */
-    public function appendElement(string $name, $content = '', array $attributes = NULL): Element {
+    public function appendElement(string $name, $content = '', ?array $attributes = NULL): Element {
       $this->appendChild(
         $node = $this->createElement($name, $content, $attributes)
       );
@@ -233,7 +233,7 @@ namespace FluentDOM\DOM {
      * @param string|array|NULL $content
      * @param array|NULL $attributes
      */
-    private function appendAttributes(\DOMElement $node, $content = NULL, array $attributes = NULL): void {
+    private function appendAttributes(\DOMElement $node, $content = NULL, ?array $attributes = NULL): void {
       if (\is_array($content)) {
         /** @noinspection CallableParameterUseCaseInTypeContextInspection */
         $attributes = (NULL === $attributes) ? $content : \array_merge($content, $attributes);
@@ -356,7 +356,7 @@ namespace FluentDOM\DOM {
      * @return \DOMDocumentType
      */
     public function createDocumentType(
-      string $qualifiedName = NULL, string $publicId = NULL, string $systemId = NULL
+      ?string $qualifiedName = NULL, ?string $publicId = NULL, ?string $systemId = NULL
     ): \DOMDocumentType {
       return (new Implementation())->createDocumentType($qualifiedName, (string)$publicId, (string)$systemId);
     }

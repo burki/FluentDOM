@@ -51,7 +51,7 @@ namespace FluentDOM\XMLReader {
      * @param callable|NULL $filter
      */
     public function __construct(
-      XMLReader $reader, $name = NULL, callable $filter = NULL
+      XMLReader $reader, $name = NULL, ?callable $filter = NULL
     ) {
       $this->_reader = $reader;
       $this->_name = $name;
@@ -88,7 +88,7 @@ namespace FluentDOM\XMLReader {
      * @return bool
      */
     protected function move(
-      XMLReader $reader, string $name = NULL, callable $filter = NULL
+      XMLReader $reader, ?string $name = NULL, ?callable $filter = NULL
     ): bool {
       while ($found = $reader->read($name, NULL, $filter)) {
         if ($found && $reader->nodeType !== XMLReader::END_ELEMENT) {

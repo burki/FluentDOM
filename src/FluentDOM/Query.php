@@ -25,11 +25,11 @@ namespace FluentDOM {
    * @property Query\Css $css
    *
    * Define methods from parent to provide information for code completion
-   * @method Query load($source, string $contentType = NULL, $options = [])
+   * @method Query load($source, ?string $contentType = NULL, $options = [])
    * @method Query spawn($elements = NULL)
    * @method Query find($selector, int $options = 0)
    * @method Query end()
-   * @method Query formatOutput(string $contentType = NULL)
+   * @method Query formatOutput(?string $contentType = NULL)
    */
   class Query extends Nodes {
 
@@ -447,7 +447,7 @@ namespace FluentDOM {
      * @param int|NULL $position optional offset of a single element to get.
      * @return array|\DOMNode|NULL
      */
-    public function get(int $position = NULL) {
+    public function get(?int $position = NULL) {
       if (NULL === $position) {
         return $this->_nodes;
       }
@@ -770,7 +770,7 @@ namespace FluentDOM {
      * @throws \InvalidArgumentException
      * @example ../examples/Query/slice.php Usage Example: FluentDOM\Query::slice()
      */
-    public function slice(int $start, int $end = NULL): self {
+    public function slice(int $start, ?int $end = NULL): self {
       $result = $this->spawn();
       if ($end === NULL) {
         $result->push(\array_slice($this->_nodes, $start));
@@ -1028,7 +1028,7 @@ namespace FluentDOM {
      * @throws \InvalidArgumentException
      * @example ../examples/Query/remove.php Usage Example: FluentDOM\Query::remove()
      */
-    public function remove(string $selector = NULL): self {
+    public function remove(?string $selector = NULL): self {
       $result = $this->spawn();
       foreach ($this->_nodes as $node) {
         if (
@@ -1072,7 +1072,7 @@ namespace FluentDOM {
      * @param string|NULL $selector
      * @return $this
      */
-    public function unwrap(string $selector = NULL): Query {
+    public function unwrap(?string $selector = NULL): Query {
       $parents = $this->parent();
       if (NULL !== $selector) {
         $parents = $parents->filter($selector);
@@ -1524,7 +1524,7 @@ namespace FluentDOM {
      * @throws \InvalidArgumentException
      * @example ../examples/Query/toggleClass.php Usage Example: FluentDOM\Query::toggleClass()
      */
-    public function toggleClass($class, bool $switch = NULL): self {
+    public function toggleClass($class, ?bool $switch = NULL): self {
       $callback = Constraints::filterCallable($class);
       $this->each(
         function (\DOMElement $node, $index) use ($class, $switch, $callback) {
@@ -1566,7 +1566,7 @@ namespace FluentDOM {
      * @return NULL|string
      */
     private function changeClassString(
-      string $current, string $toggle, bool $switch = NULL
+      string $current, string $toggle, ?bool $switch = NULL
     ): ?string {
       $currentClasses = \array_flip(
         \preg_split('(\s+)', \trim($current), 0, PREG_SPLIT_NO_EMPTY) ?: []
@@ -1699,7 +1699,7 @@ namespace FluentDOM {
      * @param \DOMElement|NULL $element
      * @return bool
      */
-    public function hasData(\DOMElement $element = NULL): bool {
+    public function hasData(?\DOMElement $element = NULL): bool {
       if ($element || ($element = $this->getFirstElement())) {
         $data = new Query\Data($element);
         return \count($data) > 0;

@@ -31,7 +31,7 @@ namespace FluentDOM\DOM\Node {
      * @param Node|\DOMNode|NULL $context
      * @return string|float|\DOMNodeList|Node[]
      */
-    public function evaluate(string $expression, Node $context = NULL) {
+    public function evaluate(string $expression, ?Node $context = NULL) {
       $document = $this instanceof Document
         ? $this
         : $this->ownerDocument;

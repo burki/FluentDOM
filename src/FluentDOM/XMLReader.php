@@ -57,7 +57,7 @@ namespace FluentDOM {
      * @param callable|NULL $filter
      * @return bool
      */
-    public function next($name = NULL, string $namespaceURI = NULL, callable $filter = NULL): bool {
+    public function next($name = NULL, ?string $namespaceURI = NULL, ?callable $filter = NULL): bool {
       if (NULL !== $name) {
         [$localName, $namespaceURI, $ignoreNamespace] = $this->prepareCondition($name, $namespaceURI);
       } else {
@@ -90,7 +90,7 @@ namespace FluentDOM {
      * @param callable|NULL $filter
      * @return bool
      */
-    public function read(string $name = NULL, string $namespaceURI = NULL, callable $filter = NULL): bool {
+    public function read(?string $name = NULL, ?string $namespaceURI = NULL, ?callable $filter = NULL): bool {
       if (NULL !== $name) {
         [$localName, $namespaceURI, $ignoreNamespace] = $this->prepareCondition($name ?? '', $namespaceURI);
         while (parent::read()) {
@@ -151,7 +151,7 @@ namespace FluentDOM {
      * @param string|NULL $namespaceURI
      * @return array
      */
-    private function prepareCondition(string $name, string $namespaceURI = NULL): array {
+    private function prepareCondition(string $name, ?string $namespaceURI = NULL): array {
       if (NULL !== $namespaceURI) {
         $localName = $name;
         $namespaceURI = (string)$namespaceURI;
@@ -171,7 +171,7 @@ namespace FluentDOM {
      * @return bool
      * @throws InvalidArgumentType
      */
-    public function attachStream($stream, string $encoding = NULL, int $options = 0): bool {
+    public function attachStream($stream, ?string $encoding = NULL, int $options = 0): bool {
       if (!\is_resource($stream)) {
         throw new InvalidArgument('stream', 'resource');
       }

@@ -85,7 +85,7 @@ namespace FluentDOM\DOM\Node\ParentNode {
       }
     }
 
-    abstract public function evaluate(string $expression, Node $context = NULL);
+    abstract public function evaluate(string $expression, ?Node $context = NULL);
   }
 
 }

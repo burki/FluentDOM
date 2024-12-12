@@ -129,7 +129,7 @@ namespace FluentDOM {
      * @throws InvalidVariableSource
      * @throws \OutOfBoundsException
      */
-    public function load($source, string $contentType = NULL, $options = []): self {
+    public function load($source, ?string $contentType = NULL, $options = []): self {
       $contentType = $contentType ?: 'text/xml';
       $loaded = $this->prepareSource($source, $contentType, $options);
       $isResult = $loaded instanceof Loader\Result;
@@ -236,12 +236,12 @@ namespace FluentDOM {
     }
 
     /**
-     * @param string $expression
-     * @param \DOMNode $contextNode
+     * @param string|NULL $expression
+     * @param \DOMNode|NULL $contextNode
      * @return Xpath|\DOMNodeList|float|string
      * @throws \LogicException
      */
-    public function xpath(string $expression = NULL, \DOMNode $contextNode = NULL) {
+    public function xpath(?string $expression = NULL, ?\DOMNode $contextNode = NULL) {
       if (NULL !== $expression) {
         return $this->getXpath()->evaluate($expression, $contextNode);
       }
@@ -305,11 +305,11 @@ namespace FluentDOM {
      * The document is saved and reloaded, all variables with DOMNodes
      * of this document will get invalid.
      *
-     * @param string $contentType
+     * @param string|null $contentType
      * @return self
      * @throws \LogicException
      */
-    public function formatOutput(string $contentType = NULL): self {
+    public function formatOutput(?string $contentType = NULL): self {
       if (NULL !== $contentType) {
         $this->setContentType($contentType);
       }
@@ -451,7 +451,7 @@ namespace FluentDOM {
      * @param \DOMNode $context optional, default value NULL
      * @return bool
      */
-    protected function matches(string $selector, \DOMNode $context = NULL): bool {
+    protected function matches(string $selector, ?\DOMNode $context = NULL): bool {
       $check = $this->xpath->evaluate(
         $this->prepareSelector($selector, self::CONTEXT_SELF), $context
       );
@@ -938,7 +938,7 @@ namespace FluentDOM {
      * @param Serializer\Factory\Group|NULL $factories
      * @return Serializer\Factory\Group
      */
-    public function serializerFactories(Serializer\Factory\Group $factories = NULL): Serializer\Factory\Group {
+    public function serializerFactories(?Serializer\Factory\Group $factories = NULL): Serializer\Factory\Group {
       if (NULL !== $factories) {
         $this->_serializerFactories = $factories;
       } elseif (NULL === $this->_serializerFactories) {

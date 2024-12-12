@@ -139,7 +139,7 @@ abstract class FluentDOM {
    * @param FluentDOM\Loadable|NULL $loader
    * @throws InvalidArgument
    */
-  public static function setLoader(Loadable $loader = NULL): void {
+  public static function setLoader(?Loadable $loader = NULL): void {
     if (!$loader) {
       self::$_loader = NULL;
       return;

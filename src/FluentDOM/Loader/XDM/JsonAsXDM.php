@@ -115,7 +115,7 @@ namespace FluentDOM\Loader\XDM {
      * @param int $recursions
      * @throws UnattachedNode
      */
-    protected function transferTo(\DOMNode $parent, $json, string $key = NULL, int $recursions = 100): void {
+    protected function transferTo(\DOMNode $parent, $json, ?string $key = NULL, int $recursions = 100): void {
       if ($recursions < 1) {
         return;
       }

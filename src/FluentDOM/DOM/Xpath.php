@@ -74,7 +74,7 @@ namespace FluentDOM\DOM {
      * @param NULL|bool $registerNodeNS
      * @return string|float|bool|\DOMNodeList
      */
-    public function evaluate($expression, \DOMNode $contextNode = NULL, $registerNodeNS = NULL) {
+    public function evaluate($expression, ?\DOMNode $contextNode = NULL, $registerNodeNS = NULL) {
       $registerNodeNS = $registerNodeNS ?? $this->registerNodeNamespaces;
       return parent::evaluate($expression, $contextNode, (bool)$registerNodeNS);
     }
@@ -86,7 +86,7 @@ namespace FluentDOM\DOM {
      * @param \DOMNode|NULL $contextNode
      * @return string|float|bool|\DOMNodeList
      */
-    public function __invoke(string $expression, \DOMNode $contextNode = NULL) {
+    public function __invoke(string $expression, ?\DOMNode $contextNode = NULL) {
       return $this->evaluate($expression, $contextNode);
     }
 
@@ -103,7 +103,7 @@ namespace FluentDOM\DOM {
      * @return \DOMNodeList|NULL
      */
     public function query(
-      $expression, \DOMNode $contextNode = NULL, $registerNodeNS = NULL
+      $expression, ?\DOMNode $contextNode = NULL, $registerNodeNS = NULL
     ): ?\DOMNodeList {
       trigger_error(
         'Please use XPath::evaluate() not XPath::query().', E_USER_DEPRECATED
@@ -120,7 +120,7 @@ namespace FluentDOM\DOM {
      * @param NULL|bool $registerNodeNS
      * @return \DOMNode|NULL
      */
-    public function firstOf(string $expression, \DOMNode $contextNode = NULL, bool $registerNodeNS = NULL): ?\DOMNode {
+    public function firstOf(string $expression, ?\DOMNode $contextNode = NULL, ?bool $registerNodeNS = NULL): ?\DOMNode {
       $nodes = $this->evaluate($expression, $contextNode, $registerNodeNS);
       if ($nodes instanceof \DOMNodeList && $nodes->length > 0) {
         return $nodes->item(0);

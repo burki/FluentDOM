@@ -162,7 +162,7 @@ namespace FluentDOM\DOM {
      * @return Element
      * @throws \LogicException
      */
-    public function appendElement(string $name, $content = '', array $attributes = NULL): Element {
+    public function appendElement(string $name, $content = '', ?array $attributes = NULL): Element {
       $this->appendChild(
         $node = $this->ownerDocument->createElement($name, $content, $attributes)
       );
@@ -180,4 +180,3 @@ namespace FluentDOM\DOM {
     }
   }
 }
-

@@ -99,7 +99,7 @@ namespace FluentDOM\Utility {
      */
     public function stream_open(
       /** @noinspection PhpUnusedParameterInspection */
-      string $path, string $mode, int $options, string &$opened_path = NULL
+      string $path, string $mode, int $options, ?string &$opened_path = NULL
     ): bool {
       [$protocol, $id] = \explode('://', $path);
       $context = \stream_context_get_options($this->context);

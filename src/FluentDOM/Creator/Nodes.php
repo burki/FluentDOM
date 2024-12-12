@@ -38,7 +38,7 @@ namespace FluentDOM\Creator {
      * @param iterable $iterable
      * @param callable|NULL $map
      */
-    public function __construct(iterable $iterable, callable $map = NULL) {
+    public function __construct(iterable $iterable, ?callable $map = NULL) {
       $this->_iterable = $iterable;
       $this->_map = $map;
     }
